@@ -56,7 +56,7 @@
 					
 			 <% } %>    --%>
 				
-				<c:forEach var="stud" items="${STUDENTS}">
+				<c:forEach var="stud" items="${STUDENT}">
 				
 					<!-- set up a link for each student -->
 					<c:url var ="tempLink" value="StudentControllerServlet">
