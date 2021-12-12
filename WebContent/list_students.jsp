@@ -21,11 +21,23 @@
 		</div>
 	</div>
 	
+	
 	<div id="container">
 		<div id="content">
 			<!-- Place the add button here -->
 			<input type="button" value="Add student" onclick="window.location.href='add-student-form.jsp';return false;" 
 			class="add-student-button"> 
+			
+			<!--  add a search box -->
+            <form action="StudentControllerServlet" method="GET">
+        
+                <input type="hidden" name="command" value="SEARCH" />
+            
+                Search student: <input type="text" name="theSearchName" />
+                
+                <input type="submit" value="Search" class="add-student-button" />
+            
+            </form>
 			
 			<table>
 				<tr>
@@ -44,7 +56,7 @@
 					
 			 <% } %>    --%>
 				
-				<c:forEach var="stud" items="${STUDENTS}">
+				<c:forEach var="stud" items="${STUDENT}">
 				
 					<!-- set up a link for each student -->
 					<c:url var ="tempLink" value="StudentControllerServlet">

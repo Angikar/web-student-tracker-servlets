@@ -63,12 +63,32 @@ public class StudentControllerServlet extends HttpServlet {
 				break;
 			case "DELETE":
 				deleteStudent(request,response);
+				break;
+			case "SEARCH":
+				searchStudent(request,response);
+				break;
 			default:
 				listStudents(request,response);			
 			}
 		
 	}catch(Exception ex) {
 		throw new ServletException(ex);}
+	}
+
+
+
+	private void searchStudent(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		String theSearchName=request.getParameter("theSearchName");
+		
+		List<Student> students = studentDbUtil.searchStudents(theSearchName);
+		 
+		 request.setAttribute("STUDENT", students);
+         
+	        // send to JSP page (view)
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("/list_students.jsp");
+	        dispatcher.forward(request, response);
+		 
 	}
 
 
@@ -150,7 +170,7 @@ public class StudentControllerServlet extends HttpServlet {
 		
 		// add students to the request
 		
-		request.setAttribute("STUDENTS", students);
+		request.setAttribute("STUDENT", students);
 		
 		// send the dispatcher to jsp page
 		
