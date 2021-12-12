@@ -47,7 +47,7 @@
 		</form>
 		
 		<div>
-		<p> <a href="StudentControllerServlet">Back to List</a></p>
+		<p> <a href="StudentControllerServlet">Back to the List</a></p>
 		</div>
 	
 	</div>
